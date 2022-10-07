@@ -6,25 +6,24 @@
 
 int main()
 {
-	printf("\n --- MCAutoSprint ---\n\nwキーを押したら作動します(自動)\n");
+	printf("\n --- MCAutoSprint ---\n\nWASDを押したら作動します\n");
 
-	// 初期化
 	bool iskeydown, tempdown;
 	std::fstream settings;
 	std::string minecraft = "Minecraft";
-	std::string configfile = "setting.txt";
 	// 設定ファイル
+	std::string configfile = "setting.txt";
 	settings.open(configfile);
 
 	// キー設定
 	int dashkey;
 	settings >> dashkey;
-	printf("\nダッシュキー 仮想コード : %d で読み込まれました。\nCtrl、Deleteキーを同時押しするとexeが終了します。\n", dashkey);
+	printf("\nダッシュキー 仮想コード : %d で読み込まれました。\nCtrl、Deleteキーを同時押しすると終了します。\n", dashkey);
 
 	while (1)
 	{
 
-		// メインウィンドウ確認
+		// メインウィンドウ
 		char window_title[500];
 		HWND foreground = GetForegroundWindow();
 		GetWindowText(foreground, window_title, sizeof(window_title));
@@ -33,19 +32,7 @@ int main()
 		}
 
 		// wasd移動
-		else if (GetAsyncKeyState('W'))
-		{
-			iskeydown = true;
-		}
-		else if (GetAsyncKeyState('A'))
-		{
-			iskeydown = true;
-		}
-		else if (GetAsyncKeyState('S'))
-		{
-			iskeydown = true;
-		}
-		else if (GetAsyncKeyState('D'))
+		else if (GetAsyncKeyState('W') || GetAsyncKeyState('A') || GetAsyncKeyState('S') || GetAsyncKeyState('D'))
 		{
 			iskeydown = true;
 		}
@@ -54,7 +41,7 @@ int main()
 			iskeydown = false;
 		}
 
-		// 押されたら
+		// 押したら
 		if (iskeydown && !tempdown)
 		{
 			keybd_event(dashkey, 0x00, KEYEVENTF_EXTENDEDKEY | 0, 0);
@@ -67,7 +54,7 @@ int main()
 			tempdown = false; // 離し保存
 		}
 
-		// ctrl+delで終了する
+		// 終了する
 		if (GetAsyncKeyState(VK_DELETE) && GetAsyncKeyState(VK_CONTROL))
 		{
 			keybd_event(dashkey, 0x00, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
