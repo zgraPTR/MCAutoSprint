@@ -6,7 +6,7 @@
 
 int main()
 {
-	printf("\n --- MCAutoSprint ---\n\nWASDを押したら作動します\n");
+	printf("\n --- MCAutoSprint ---\n\nPress the WASD key to automatically Sprint.\n");
 
 	bool iskeydown, tempdown;
 	std::fstream settings;
@@ -18,7 +18,7 @@ int main()
 	// キー設定
 	int dashkey;
 	settings >> dashkey;
-	printf("\nダッシュキー 仮想コード : %d で読み込まれました。\nCtrl、Deleteキーを同時押しすると終了します。\n", dashkey);
+	printf("\nSprint Key (Virtual-Key) is set to %d\nSimultaneous pressing of Ctrl and Delete key will exit.\n", dashkey);
 
 	while (1)
 	{
