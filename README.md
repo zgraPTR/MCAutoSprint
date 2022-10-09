@@ -4,4 +4,4 @@
 メインウィンドウがMinecraftのとき、WASDが押されたらSprintキーを入力します。
 
 ### スクリーンショット
-![image](https://user-images.githubusercontent.com/94283685/194461626-b29e6f0d-639f-4ab7-90cf-e5218cdcbd9d.png)
+![スクリーンショット 2022-10-09 214057](https://user-images.githubusercontent.com/94283685/194757458-ca7b1fdc-ae40-4f4b-b23b-7ec73f4b17fa.png)
